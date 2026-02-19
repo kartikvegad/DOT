@@ -1,0 +1,44 @@
+/* LANDING SECTION - LOGO ONLY */
+.landing-section {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    background: var(--bg-primary);
+}
+
+.landing-logo-wrapper {
+    text-align: center;
+    animation: fadeIn 1s ease-out;
+}
+
+.landing-logo {
+    width: 240px;
+    height: auto;
+    fill: var(--text-primary);
+    transition: all 0.4s var(--ease-expo);
+}
+
+.landing-section:hover .landing-logo {
+    fill: var(--accent);
+    transform: scale(1.05);
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@media (max-width: 768px) {
+    .landing-logo {
+        width: 200px;
+    }
+}

@@ -1,0 +1,219 @@
+.contact-section {
+    position: relative;
+    overflow: hidden;
+    background: var(--bg-primary);
+    border-bottom: 1px solid var(--border-color);
+}
+
+.form-container {
+    max-width: 800px;
+    margin: 0 auto;
+    background: transparent;
+    border: 1px solid var(--border-color);
+    border-radius: 0;
+    padding: 4rem;
+    position: relative;
+}
+
+.step-indicator {
+    display: flex;
+    gap: 2px;
+    margin-bottom: 4rem;
+}
+
+.step-dot {
+    height: 4px;
+    flex: 1;
+    background: var(--border-color);
+    border-radius: 0;
+    transition: background 0.3s;
+}
+
+.step-dot.active {
+    background: var(--accent);
+}
+
+.step-dot.completed {
+    background: var(--text-primary);
+}
+
+.form-title {
+    display: block;
+    margin-bottom: 3rem;
+    font-size: 2rem;
+    font-weight: 400;
+    text-transform: uppercase;
+    color: var(--text-primary);
+}
+
+.selection-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 0;
+    border: 1px solid var(--border-color);
+}
+
+.selection-card {
+    border: 1px solid var(--border-color);
+    padding: 2rem;
+    margin: -1px;
+    border-radius: 0;
+    cursor: pointer;
+    transition: all 0.3s var(--ease-expo);
+    text-align: left;
+    background: transparent;
+    position: relative;
+    overflow: hidden;
+}
+
+.selection-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 3px;
+    height: 100%;
+    background: var(--accent);
+    transform: scaleY(0);
+    transform-origin: top;
+    transition: transform 0.4s var(--ease-expo);
+}
+
+.selection-card:hover::before,
+.selection-card.selected::before {
+    transform: scaleY(1);
+}
+
+.selection-card:hover {
+    background: var(--bg-tertiary);
+    z-index: 1;
+    border-color: var(--text-secondary);
+}
+
+.selection-card.selected {
+    background: var(--accent);
+    border-color: var(--accent);
+    color: var(--bg-primary);
+    z-index: 2;
+}
+
+.selection-card.selected p {
+    color: rgba(0, 0, 0, 0.6);
+}
+
+.selection-card h4 {
+    margin-bottom: 0.5rem;
+    font-size: 1rem;
+    text-transform: uppercase;
+}
+
+.selection-card p {
+    font-family: var(--font-mono);
+    font-size: 0.8rem;
+    margin: 0;
+    color: var(--text-secondary);
+}
+
+.form-group {
+    margin-bottom: 2rem;
+}
+
+.form-label {
+    display: block;
+    font-family: var(--font-mono);
+    font-size: 0.8rem;
+    color: var(--text-secondary);
+    margin-bottom: 0.5rem;
+    text-transform: uppercase;
+}
+
+.form-input,
+.form-textarea {
+    width: 100%;
+    padding: 1.5rem;
+    background: transparent;
+    border: 1px solid var(--border-color);
+    color: var(--text-primary);
+    border-radius: 0;
+    font-family: var(--font-mono);
+    font-size: 1rem;
+    transition: border-color 0.2s;
+    margin-bottom: 1rem;
+}
+
+.form-input:focus,
+.form-textarea:focus {
+    outline: none;
+    border-color: var(--accent);
+    background: var(--bg-secondary);
+}
+
+.form-actions {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 3rem;
+}
+
+.btn-next {
+    padding: 1rem 3rem;
+    background: var(--text-primary);
+    color: var(--bg-primary);
+    border-radius: 0;
+    font-weight: 700;
+    text-transform: uppercase;
+    font-family: var(--font-mono);
+    display: inline-flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+.btn-back {
+    padding: 1rem 2rem;
+    color: var(--text-secondary);
+    font-family: var(--font-mono);
+    text-transform: uppercase;
+    background: transparent;
+    border: 1px solid transparent;
+}
+
+.btn-back:hover {
+    border-color: var(--border-color);
+}
+
+.btn-next:disabled {
+    opacity: 0.3;
+    cursor: not-allowed;
+    background: var(--bg-tertiary);
+    color: var(--text-secondary);
+}
+
+.success-message {
+    text-align: center;
+    padding: 2rem;
+}
+
+@media (max-width: 600px) {
+    .selection-grid {
+        grid-template-columns: 1fr;
+        border: none;
+    }
+
+    .form-container {
+        padding: 1.5rem;
+        border-left: none;
+        border-right: none;
+    }
+}
+
+.error-message-ui {
+    background: rgba(255, 68, 0, 0.1);
+    border: 1px solid var(--accent);
+    color: var(--accent);
+    padding: 1rem;
+    font-family: var(--font-mono);
+    font-size: 0.8rem;
+    margin-top: 2rem;
+    text-align: center;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+}

@@ -1,0 +1,97 @@
+/* SERVICES SECTION - CLEAN GRID */
+.services-section {
+    background: var(--bg-primary);
+}
+
+.services-container {
+    max-width: 1400px;
+    margin: 0 auto;
+}
+
+/* Standardized header is now in index.css */
+
+.services-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 0;
+    margin-top: var(--spacing-lg);
+    border: 0.5px solid var(--border-color);
+}
+
+.service-card {
+    background: transparent;
+    border: 0.5px solid var(--border-color);
+    padding: var(--spacing-lg);
+    transition: all 0.5s var(--ease-expo);
+    position: relative;
+    overflow: hidden;
+}
+
+.service-card:hover {
+    background: var(--bg-secondary);
+    z-index: 1;
+    transform: translateY(-5px);
+}
+
+.service-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 3px;
+    height: 100%;
+    background: var(--accent);
+    transform: scaleY(0);
+    transform-origin: top;
+    transition: transform 0.5s var(--ease-expo);
+}
+
+.service-card:hover::before {
+    transform: scaleY(1);
+}
+
+/* Enhanced hover effect for light theme */
+[data-theme="light"] .service-card:hover {
+    background: white;
+    box-shadow: 0 12px 32px rgba(0, 0, 0, 0.12);
+}
+
+.service-icon {
+    color: var(--text-tertiary);
+    /* Default color matching project meta info */
+    margin-bottom: var(--spacing-md);
+    transition: color 0.3s var(--ease-expo);
+}
+
+.service-card:hover .service-icon {
+    color: var(--accent);
+}
+
+.service-card h3 {
+    font-family: var(--font-display);
+    font-size: 1.5rem;
+    font-weight: 600;
+    color: var(--text-primary);
+    margin-bottom: var(--spacing-sm);
+    text-transform: uppercase;
+    letter-spacing: -0.01em;
+    transition: color 0.3s;
+}
+
+.service-card:hover h3 {
+    color: var(--accent);
+}
+
+.service-card p {
+    font-family: var(--font-display);
+    font-size: 0.95rem;
+    color: var(--text-secondary);
+    line-height: 1.6;
+    margin: 0;
+}
+
+@media (max-width: 768px) {
+    .services-grid {
+        grid-template-columns: 1fr;
+    }
+}

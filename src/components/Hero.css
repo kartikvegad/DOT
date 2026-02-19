@@ -1,0 +1,112 @@
+/* HERO SECTION - CLEAN & MODERN */
+.hero-section {
+    min-height: calc(100vh - 64px);
+    margin-top: 64px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: var(--spacing-md);
+    background: var(--bg-primary);
+}
+
+.hero-container {
+    max-width: 1400px;
+    width: 100%;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.hero-label {
+    font-family: var(--font-mono);
+    font-size: 0.65rem;
+    color: var(--accent);
+    text-transform: uppercase;
+    letter-spacing: 0.15em;
+    margin-bottom: var(--spacing-md);
+    display: inline-block;
+    padding: var(--spacing-xs) var(--spacing-sm);
+    border: 1px solid var(--border-color);
+}
+
+.hero-title {
+    font-family: var(--font-display);
+    font-size: clamp(1.8rem, 4vw, 3.2rem);
+    font-weight: 700;
+    line-height: 1.1;
+    letter-spacing: -0.04em;
+    margin-bottom: var(--spacing-md);
+    color: var(--text-primary);
+    text-transform: uppercase;
+}
+
+.hero-subtitle {
+    font-family: var(--font-display);
+    font-size: clamp(0.85rem, 1.2vw, 1.05rem);
+    font-weight: 400;
+    line-height: 1.7;
+    color: var(--text-secondary);
+    max-width: 800px;
+    margin: 0 auto var(--spacing-md) auto;
+}
+
+.hero-cta-group {
+    display: flex;
+    gap: var(--spacing-md);
+    justify-content: center;
+    align-items: center;
+}
+
+.btn-primary {
+    padding: 1rem 2.5rem;
+    background: var(--text-primary);
+    color: var(--bg-primary);
+    font-family: var(--font-mono);
+    font-size: 0.75rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    border: none;
+    cursor: pointer;
+    transition: all 0.3s var(--ease-expo);
+    display: inline-flex;
+    align-items: center;
+    gap: var(--spacing-sm);
+}
+
+.btn-primary:hover {
+    background: var(--accent);
+    color: white;
+    transform: translateY(-2px);
+}
+
+.btn-secondary {
+    padding: 1rem 2.5rem;
+    background: transparent;
+    color: var(--text-primary);
+    font-family: var(--font-mono);
+    font-size: 0.75rem;
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    border: 1px solid var(--border-strong);
+    cursor: pointer;
+    transition: all 0.3s;
+}
+
+.btn-secondary:hover {
+    border-color: var(--text-primary);
+    background: rgba(255, 255, 255, 0.05);
+}
+
+@media (max-width: 768px) {
+    .hero-cta-group {
+        flex-direction: column;
+        width: 100%;
+    }
+
+    .btn-primary,
+    .btn-secondary {
+        width: 100%;
+        justify-content: center;
+    }
+}

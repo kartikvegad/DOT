@@ -1,0 +1,124 @@
+/* PORTFOLIO SECTION - CARD LAYOUT */
+.portfolio-section {
+    background: var(--bg-primary);
+}
+
+.portfolio-container {
+    max-width: 1400px;
+    margin: 0 auto;
+}
+
+.portfolio-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+    gap: var(--spacing-lg);
+    margin-top: var(--spacing-lg);
+    justify-content: center;
+}
+
+.project-card {
+    background: transparent;
+    border: 0.5px solid var(--border-color);
+    overflow: hidden;
+    cursor: pointer;
+    transition: all 0.5s var(--ease-expo);
+    position: relative;
+}
+
+.project-card:hover {
+    background: var(--bg-secondary);
+    border-color: var(--border-color);
+    transform: translateY(-5px);
+    z-index: 1;
+}
+
+.project-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 3px;
+    height: 100%;
+    background: var(--accent);
+    transform: scaleY(0);
+    transform-origin: top;
+    transition: transform 0.5s var(--ease-expo);
+    z-index: 10;
+}
+
+.project-card:hover::before {
+    transform: scaleY(1);
+}
+
+/* Generic Placeholder Image */
+.generic-placeholder {
+    width: 100%;
+    height: 220px;
+    background: linear-gradient(135deg, var(--bg-tertiary) 0%, var(--bg-secondary) 100%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-bottom: 1px solid var(--border-color);
+    position: relative;
+    overflow: hidden;
+}
+
+.placeholder-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.75rem;
+}
+
+.status-badge {
+    font-family: var(--font-mono);
+    font-size: 0.6rem;
+    padding: 0.4rem 0.8rem;
+    background: var(--accent-dim);
+    border: 1px solid var(--accent);
+    color: var(--accent);
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+}
+
+.project-id {
+    font-family: var(--font-mono);
+    font-size: 0.65rem;
+    color: var(--text-tertiary);
+    opacity: 0.6;
+}
+
+.project-content {
+    padding: var(--spacing-lg);
+}
+
+.project-meta {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-bottom: var(--spacing-md);
+}
+
+.project-title {
+    font-family: var(--font-display);
+    font-size: 1.5rem;
+    font-weight: 600;
+    color: var(--text-primary);
+    margin: 0;
+    text-transform: uppercase;
+    letter-spacing: -0.01em;
+}
+
+.project-description {
+    font-family: var(--font-display);
+    font-size: 0.95rem;
+    color: var(--text-secondary);
+    line-height: 1.6;
+    margin: 0;
+}
+
+@media (max-width: 768px) {
+    .portfolio-grid {
+        grid-template-columns: 1fr;
+    }
+}
