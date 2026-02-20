@@ -46,7 +46,9 @@ const Contact = () => {
         };
 
         try {
-            const response = await fetch('http://localhost:5000/api/contact', {
+            const API_URL = '/api/contact';
+
+            const response = await fetch(API_URL, {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
