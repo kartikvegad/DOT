@@ -16,6 +16,15 @@ const app = express();
 app.use(cors());
 app.use(express.json());
 
+// Serve static files from the Vite build directory
+const distPath = path.join(__dirname, 'dist');
+app.use(express.static(distPath));
+
+// Health check for API
+app.get('/api/health', (req, res) => {
+    res.json({ status: 'ok', time: new Date().toISOString() });
+});
+
 const transporter = nodemailer.createTransport({
     service: 'gmail',
     auth: {
@@ -41,6 +50,7 @@ const getLogoBuffer = () => {
 };
 
 app.post('/api/contact', async (req, res) => {
+    console.log(`📩 New inquiry request from: ${req.body.user_email}`);
     const { user_name, user_email, service_type, budget, summary } = req.body;
 
     try {
@@ -126,6 +136,22 @@ app.post('/api/contact', async (req, res) => {
 });
 
 const PORT = process.env.PORT || 5000;
+
+// Catch-all to serve index.html for SPA routing
+app.get('*', (req, res) => {
+    // Only serve index.html if it's not an API call
+    if (!req.path.startsWith('/api')) {
+        const indexHtml = path.join(distPath, 'index.html');
+        if (fs.existsSync(indexHtml)) {
+            res.sendFile(indexHtml);
+        } else {
+            res.status(404).send('Frontend not built. Run npm run build.');
+        }
+    } else {
+        res.status(404).json({ error: 'API route not found' });
+    }
+});
+
 app.listen(PORT, () => {
     console.log(`✅ DOT backend running on http://localhost:${PORT}`);
 });
