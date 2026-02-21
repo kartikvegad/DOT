@@ -2,6 +2,9 @@ import React from 'react';
 import { motion } from 'framer-motion';
 import { Github, Linkedin, Instagram, Globe } from 'lucide-react';
 import kvPhoto from '../assets/Photos/vk.jpeg';
+import pcPhoto from '../assets/Photos/PC.jpeg';
+import nbPhoto from '../assets/Photos/NB.jpg';
+import dnPhoto from '../assets/Photos/';
 import './Team.css';
 
 const teamMembers = [
@@ -13,7 +16,42 @@ const teamMembers = [
             github: "https://github.com/notkartik1806",
             linkedin: "https://www.linkedin.com/in/kartikvegad/",
             instagram: "https://www.instagram.com/kartikvegad/",
-            portfolio: "https://kartik-vegad.vercel.app"
+            portfolio: "https://kartikvegad.in"
+        }
+    }
+    {
+        name: "Prayas Chavda",
+        role: "Co-Founder",
+        image: pcPhoto,
+        socials: {
+            github: "https://github.com/Caffeinechic",
+            linkedin: "https://www.linkedin.com/in/chavdaprayas/",
+            instagram: "",
+            portfolio: "https://prayaschavda.vercel.app/"
+        }
+    }
+
+    {
+        name: "Nandish Bhatt",
+        role: "Co-Founder",
+        image: nbPhoto,
+        socials: {
+            github: "",
+            linkedin: "https://www.linkedin.com/in/nandish-bhatt/",
+            instagram: "",
+            portfolio: ""
+        }
+    }
+
+    {
+        name: "Daksh Ninama",
+        role: "Co-Founder",
+        image: dnPhoto,
+        socials: {
+            github: "",
+            linkedin: "https://www.linkedin.com/in/daksh-ninama/",
+            instagram: "",
+            portfolio: ""
         }
     }
 ];
