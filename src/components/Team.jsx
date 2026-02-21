@@ -18,7 +18,7 @@ const teamMembers = [
             instagram: "https://www.instagram.com/kartikvegad/",
             portfolio: "https://kartikvegad.in"
         }
-    }
+    },
     {
         name: "Prayas Chavda",
         role: "Co-Founder",
@@ -29,7 +29,7 @@ const teamMembers = [
             instagram: "",
             portfolio: "https://prayaschavda.vercel.app/"
         }
-    }
+    },
 
     {
         name: "Nandish Bhatt",
@@ -41,7 +41,7 @@ const teamMembers = [
             instagram: "",
             portfolio: ""
         }
-    }
+    },
 
     {
         name: "Daksh Ninama",
