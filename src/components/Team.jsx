@@ -4,7 +4,7 @@ import { Github, Linkedin, Instagram, Globe } from 'lucide-react';
 import kvPhoto from '../assets/Photos/vk.jpeg';
 import pcPhoto from '../assets/Photos/PC.jpeg';
 import nbPhoto from '../assets/Photos/NB.jpg';
-import dnPhoto from '../assets/Photos/';
+import dnPhoto from '../assets/Photos/DN.png';
 import './Team.css';
 
 const teamMembers = [
