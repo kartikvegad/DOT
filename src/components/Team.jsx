@@ -10,7 +10,7 @@ import './Team.css';
 const teamMembers = [
     {
         name: "Kartik Vegad",
-        role: "Founder & Director",
+        role: "Co-Founder & Director",
         image: kvPhoto,
         socials: {
             github: "https://github.com/notkartik1806",
@@ -21,7 +21,7 @@ const teamMembers = [
     },
     {
         name: "Prayas Chavda",
-        role: "Co-Founder",
+        role: "Co-Founder & CEO",
         image: pcPhoto,
         socials: {
             github: "https://github.com/Caffeinechic",
