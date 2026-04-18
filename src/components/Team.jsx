@@ -29,31 +29,31 @@ const teamMembers = [
             instagram: "",
             portfolio: "https://prayaschavda.vercel.app/"
         }
-    },
-
-    {
-        name: "Nandish Bhatt",
-        role: "Co-Founder",
-        image: nbPhoto,
-        socials: {
-            github: "",
-            linkedin: "https://www.linkedin.com/in/nandish-bhatt/",
-            instagram: "",
-            portfolio: ""
-        }
-    },
-
-    {
-        name: "Daksh Ninama",
-        role: "Co-Founder",
-        image: dnPhoto,
-        socials: {
-            github: "",
-            linkedin: "https://www.linkedin.com/in/daksh-ninama/",
-            instagram: "",
-            portfolio: ""
-        }
     }
+
+    // {
+    //     name: "Nandish Bhatt",
+    //     role: "Co-Founder",
+    //     image: nbPhoto,
+    //     socials: {
+    //         github: "",
+    //         linkedin: "https://www.linkedin.com/in/nandish-bhatt/",
+    //         instagram: "",
+    //         portfolio: ""
+    //     }
+    // },
+
+    // {
+    //     name: "Daksh Ninama",
+    //     role: "Co-Founder",
+    //     image: dnPhoto,
+    //     socials: {
+    //         github: "",
+    //         linkedin: "https://www.linkedin.com/in/daksh-ninama/",
+    //         instagram: "",
+    //         portfolio: ""
+    //     }
+    // }
 ];
 
 const Team = () => {
