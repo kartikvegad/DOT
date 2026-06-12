@@ -51,7 +51,8 @@ const getLogoBuffer = () => {
 
 app.post('/api/contact', async (req, res) => {
     console.log(`📩 New inquiry request from: ${req.body.user_email}`);
-    const { user_name, user_email, service_type, budget, summary } = req.body;
+    const { user_name, user_email, query, summary } = req.body;
+    const userQuery = (query || summary || '').trim() || 'Not provided';
 
     try {
         const logoBuffer = await getLogoBuffer();
@@ -60,16 +61,14 @@ app.post('/api/contact', async (req, res) => {
         const adminMailOptions = {
             from: `"DOT. Website" <${process.env.EMAIL_USER}>`,
             to: process.env.EMAIL_USER,
-            subject: `New Inquiry: ${service_type} – from ${user_name || user_email}`,
+            subject: `New inquiry from ${user_name || user_email} – DOT.`,
             html: `
                 <div style="font-family: Arial, sans-serif; max-width: 600px; margin: 0 auto; padding: 24px; background: #0a0a0a; color: #f0f0f0; border-radius: 12px;">
-                    <h2 style="color: #f97316; border-bottom: 1px solid #222; padding-bottom: 12px;">📨 New Project Inquiry</h2>
+                    <h2 style="color: #FF4400; border-bottom: 1px solid #222; padding-bottom: 12px;">📨 New Contact Inquiry</h2>
                     <table style="width: 100%; border-collapse: collapse; margin-top: 16px;">
                         <tr><td style="padding: 8px 0; color: #888; width: 140px;">Name</td><td style="padding: 8px 0; font-weight: bold;">${user_name || 'Not provided'}</td></tr>
-                        <tr><td style="padding: 8px 0; color: #888;">Email</td><td style="padding: 8px 0;"><a href="mailto:${user_email}" style="color: #f97316;">${user_email}</a></td></tr>
-                        <tr><td style="padding: 8px 0; color: #888;">Service</td><td style="padding: 8px 0;">${service_type}</td></tr>
-                        <tr><td style="padding: 8px 0; color: #888;">Budget</td><td style="padding: 8px 0;">${budget}</td></tr>
-                        <tr><td style="padding: 8px 0; color: #888; vertical-align: top;">Summary</td><td style="padding: 8px 0;">${summary || 'Not provided'}</td></tr>
+                        <tr><td style="padding: 8px 0; color: #888;">Email</td><td style="padding: 8px 0;"><a href="mailto:${user_email}" style="color: #FF4400;">${user_email}</a></td></tr>
+                        <tr><td style="padding: 8px 0; color: #888; vertical-align: top;">Query</td><td style="padding: 8px 0;">${userQuery}</td></tr>
                     </table>
                 </div>
             `,
@@ -97,17 +96,17 @@ app.post('/api/contact', async (req, res) => {
                     </p>
 
                     <div style="background: #111; border: 1px solid #1e1e1e; border-radius: 10px; padding: 20px; margin-bottom: 24px;">
-                        <h3 style="font-size: 13px; color: #555; text-transform: uppercase; letter-spacing: 1px; margin-top: 0;">Your Inquiry Summary</h3>
+                        <h3 style="font-size: 13px; color: #555; text-transform: uppercase; letter-spacing: 1px; margin-top: 0;">Your Message</h3>
                         <table style="width: 100%; border-collapse: collapse;">
-                            <tr><td style="padding: 6px 0; color: #666; width: 130px; font-size: 14px;">Service</td><td style="padding: 6px 0; font-size: 14px;">${service_type}</td></tr>
-                            <tr><td style="padding: 6px 0; color: #666; font-size: 14px;">Budget</td><td style="padding: 6px 0; font-size: 14px;">${budget}</td></tr>
-                            ${summary ? `<tr><td style="padding: 6px 0; color: #666; font-size: 14px; vertical-align: top;">Summary</td><td style="padding: 6px 0; font-size: 14px;">${summary}</td></tr>` : ''}
+                            <tr><td style="padding: 6px 0; color: #666; width: 130px; font-size: 14px;">Name</td><td style="padding: 6px 0; font-size: 14px;">${user_name || 'Not provided'}</td></tr>
+                            <tr><td style="padding: 6px 0; color: #666; font-size: 14px;">Email</td><td style="padding: 6px 0; font-size: 14px;">${user_email}</td></tr>
+                            <tr><td style="padding: 6px 0; color: #666; font-size: 14px; vertical-align: top;">Query</td><td style="padding: 6px 0; font-size: 14px;">${userQuery}</td></tr>
                         </table>
                     </div>
 
                     <p style="color: #aaa; line-height: 1.7;">
                         In the meantime, feel free to reply to this email or reach us directly at
-                        <a href="mailto:${process.env.EMAIL_USER}" style="color: #f97316;">${process.env.EMAIL_USER}</a>.
+                        <a href="mailto:${process.env.EMAIL_USER}" style="color: #FF4400;">${process.env.EMAIL_USER}</a>.
                     </p>
 
                     <hr style="border: none; border-top: 1px solid #1e1e1e; margin: 24px 0;" />

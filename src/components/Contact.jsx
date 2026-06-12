@@ -31,9 +31,7 @@ const Contact = () => {
         const payload = {
             user_name: formData.name.trim(),
             user_email: formData.email.trim(),
-            service_type: 'General Inquiry',
-            budget: 'Custom pricing',
-            summary: formData.query.trim() || 'Not provided',
+            query: formData.query.trim(),
         };
 
         try {
