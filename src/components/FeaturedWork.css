@@ -1,0 +1,137 @@
+/* PORTFOLIO SECTION */
+.portfolio-section {
+    background: var(--bg-primary);
+}
+
+.portfolio-grid {
+    display: flex;
+    justify-content: center;
+    margin-top: var(--spacing-md);
+    width: 100%;
+}
+
+/* Matches service-card / site card pattern */
+.portfolio-card {
+    background: transparent;
+    border: 0.5px solid var(--border-color);
+    padding: var(--spacing-md);
+    max-width: 320px;
+    width: 100%;
+    text-align: center;
+    transition: all 0.5s var(--ease-expo);
+    position: relative;
+    overflow: hidden;
+}
+
+.portfolio-card:hover {
+    background: var(--bg-secondary);
+    z-index: 1;
+    transform: translateY(-5px);
+}
+
+.portfolio-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 3px;
+    height: 100%;
+    background: var(--accent);
+    transform: scaleY(0);
+    transform-origin: top;
+    transition: transform 0.5s var(--ease-expo);
+}
+
+.portfolio-card:hover::before {
+    transform: scaleY(1);
+}
+
+[data-theme="light"] .portfolio-card:hover {
+    background: white;
+    box-shadow: 0 12px 32px rgba(0, 0, 0, 0.12);
+}
+
+.portfolio-card-logo {
+    background: #ffffff;
+    border: 0.5px solid var(--border-color);
+    padding: 1.5rem;
+    margin-bottom: var(--spacing-sm);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 100px;
+}
+
+.portfolio-card-logo img {
+    max-width: 75%;
+    max-height: 64px;
+    object-fit: contain;
+}
+
+.portfolio-card-badge {
+    display: inline-block;
+    font-family: var(--font-mono);
+    font-size: 0.6rem;
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    color: var(--accent);
+    margin-bottom: 0.75rem;
+}
+
+.portfolio-card h3 {
+    font-family: var(--font-display);
+    font-size: 1.25rem;
+    font-weight: 600;
+    color: var(--text-primary);
+    margin: 0 0 var(--spacing-sm);
+    text-transform: uppercase;
+    letter-spacing: -0.01em;
+    transition: color 0.3s;
+}
+
+.portfolio-card:hover h3 {
+    color: var(--accent);
+}
+
+.portfolio-card p {
+    font-family: var(--font-display);
+    font-size: 0.9rem;
+    color: var(--text-secondary);
+    line-height: 1.6;
+    margin: 0 0 var(--spacing-md);
+}
+
+.portfolio-visit-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.4rem;
+    padding: 0.75rem 1.5rem;
+    background: var(--text-primary);
+    color: var(--bg-primary);
+    font-family: var(--font-mono);
+    font-size: 0.7rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    text-decoration: none;
+    transition: all 0.3s var(--ease-expo);
+}
+
+.portfolio-visit-btn:hover {
+    background: var(--accent);
+    color: white;
+    transform: translateY(-2px);
+}
+
+@media (max-width: 768px) {
+    .portfolio-card {
+        max-width: 100%;
+        padding: var(--spacing-md);
+    }
+
+    .portfolio-visit-btn {
+        width: 100%;
+        min-height: 48px;
+    }
+}
