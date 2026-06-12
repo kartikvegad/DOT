@@ -12,7 +12,7 @@ const projects = [
         badge: 'Website Redesign',
         image: happywindsImage,
         imageAlt: 'Happywinds logo',
-        website: 'https://happywinds.com',
+        website: 'https://www.happywindslogo.com',
         description:
             'A full website redesign for a logo and branding studio — improving visual hierarchy, brand storytelling, and a trustworthy digital presence.',
     },
