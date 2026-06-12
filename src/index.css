@@ -30,6 +30,8 @@
 
   /* Layout — single source for page gutters & section rhythm */
   --page-gutter: 2rem;
+  --navbar-height: 64px;
+  --section-padding-top: 1.25rem;
   --section-padding-y: 4rem;
   --content-max: 1400px;
 }
@@ -151,7 +153,7 @@ button {
 
 /* Common Section Styles */
 .section-padding {
-  padding-top: var(--section-padding-y);
+  padding-top: var(--section-padding-top);
   padding-bottom: var(--section-padding-y);
   padding-left: max(var(--page-gutter), env(safe-area-inset-left, 0px));
   padding-right: max(var(--page-gutter), env(safe-area-inset-right, 0px));
@@ -225,6 +227,8 @@ button {
   align-items: center;
   gap: 0.75rem;
   transition: all 0.3s var(--ease-expo);
+  border: none;
+  cursor: pointer;
 }
 
 .section-cta:hover {

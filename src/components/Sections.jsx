@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import { Code, Database, Server, Smartphone, Cpu, Cloud } from 'lucide-react';
 import { SITE_SECTIONS } from '../config/siteSections';
@@ -136,20 +137,20 @@ export const Footer = () => {
             <div className="container">
                 <div className="footer-main">
                     <div className="footer-brand">
+                        <Link to="/" className="footer-logo-link">
                         <svg
                             width="80"
                             height="32"
                             viewBox="0 0 1371 531"
                             fill="none"
                             className="footer-logo-svg"
-                            onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
-                            style={{ cursor: 'pointer' }}
                         >
                             <path d="M383.453 90.0998H384.907V429.791L283.908 429.611V530.426H101.165H0V0.609673H86.2694H183.635V0.363306L183.999 0H279.548V0.363306L279.911 0L281.001 1.08992H283.908V3.63306L383.453 90.0998ZM283.908 137.33L243.217 102.089H101.165V429.611H283.908V137.33Z" fill="currentColor" />
                             <path d="M522.6 134.786L523 429.595H422.013L422 88.6097L526.804 0.611328H706V98.6092L564.38 98.4558L522.6 134.786ZM806 424.609L716 530.611L522.756 530.502L523 429.595L669 429.611L706 387.609V98.6092H806V424.609Z" fill="currentColor" />
                             <path d="M1022 0.611328V98.6113H843V0.611328H1022ZM1193 0.611328H1371V103.61H1193V0.611328ZM1022 118.438L1122.42 117.711V530.61H1022V118.438ZM1022 118.438L1126.41 26.8846L1193 103.61L1122.42 164.214V117.711L1022 118.438Z" fill="currentColor" />
                             <path d="M1268 427.61H1371V530.61H1268V427.61Z" fill="#ff4400" />
                         </svg>
+                        </Link>
                         <p className="footer-tagline">
                             Engineering high-performance digital products with precision and purpose.
                         </p>
@@ -159,17 +160,18 @@ export const Footer = () => {
                         <div className="footer-col">
                             <h4>Navigator</h4>
                             <ul>
-                                <li><a href="#services">SERVICES</a></li>
-                                {SITE_SECTIONS.showPricing && <li><a href="#pricing">PRICING</a></li>}
-                                {SITE_SECTIONS.showTestimonials && <li><a href="#reviews">REVIEWS</a></li>}
-                                <li><a href="#work">PORTFOLIO</a></li>
-                                <li><a href="#process">PROCESS</a></li>
-                                <li><a href="#why-us">WHY US?</a></li>
+                                <li><Link to="/#services">SERVICES</Link></li>
+                                {SITE_SECTIONS.showPricing && <li><Link to="/#pricing">PRICING</Link></li>}
+                                {SITE_SECTIONS.showTestimonials && <li><Link to="/#reviews">REVIEWS</Link></li>}
+                                <li><Link to="/#work">PORTFOLIO</Link></li>
+                                <li><Link to="/#process">PROCESS</Link></li>
+                                <li><Link to="/#why-us">WHY US?</Link></li>
                                 {SITE_SECTIONS.showTeam ? (
-                                    <li><a href="#team">TEAM</a></li>
+                                    <li><Link to="/#team">TEAM</Link></li>
                                 ) : (
-                                    <li><a href="#about">ABOUT DOT.</a></li>
+                                    <li><Link to="/#about">ABOUT DOT.</Link></li>
                                 )}
+                                <li><Link to="/contact">CONTACT</Link></li>
                             </ul>
                         </div>
                         <div className="footer-col">

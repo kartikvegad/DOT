@@ -71,6 +71,7 @@
     display: inline-flex;
     align-items: center;
     gap: var(--spacing-sm);
+    text-decoration: none;
 }
 
 .btn-primary:hover {

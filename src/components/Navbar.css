@@ -45,6 +45,12 @@
     padding-left: var(--spacing-xs);
 }
 
+.brand-link {
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+}
+
 .dot-logo {
     height: 24px;
     width: auto;

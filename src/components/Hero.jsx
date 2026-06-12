@@ -1,26 +1,11 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import { ArrowRight } from 'lucide-react';
+import { handleScrollTo } from '../utils/scrollToSection';
 import './Hero.css';
 
 const Hero = () => {
-    const handleScrollTo = (e, id) => {
-        e.preventDefault();
-        const element = document.getElementById(id);
-        if (element) {
-            const offset = 64; // Navbar height
-            const bodyRect = document.body.getBoundingClientRect().top;
-            const elementRect = element.getBoundingClientRect().top;
-            const elementPosition = elementRect - bodyRect;
-            const offsetPosition = elementPosition - offset;
-
-            window.scrollTo({
-                top: offsetPosition,
-                behavior: 'smooth'
-            });
-        }
-    };
-
     return (
         <section id="hero" className="hero-section">
             <div className="hero-container">
@@ -42,9 +27,9 @@ const Hero = () => {
                     </p>
 
                     <div className="hero-cta-group">
-                        <a href="#contact" className="btn-primary" onClick={(e) => handleScrollTo(e, 'contact')}>
+                        <Link to="/contact" className="btn-primary" onClick={() => window.scrollTo(0, 0)}>
                             Start a Project <ArrowRight size={18} />
-                        </a>
+                        </Link>
                         <a href="#work" className="btn-secondary" onClick={(e) => handleScrollTo(e, 'work')}>
                             View Work
                         </a>
