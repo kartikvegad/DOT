@@ -28,20 +28,22 @@ const Navbar = () => {
                 ...(SITE_SECTIONS.showTestimonials ? ['reviews'] : []),
                 'work',
                 'process',
-                'why-dot.',
+                'why-us',
                 'stack',
                 ...(SITE_SECTIONS.showTeam ? ['team'] : ['about']),
             ];
+            const offset = 150;
             let current = '';
+            let closestTop = -Infinity;
 
             for (const section of sections) {
                 const element = document.getElementById(section);
-                if (element) {
-                    const rect = element.getBoundingClientRect();
-                    if (rect.top <= 150 && rect.bottom >= 150) {
-                        current = section;
-                        break;
-                    }
+                if (!element) continue;
+
+                const top = element.getBoundingClientRect().top;
+                if (top <= offset && top > closestTop) {
+                    closestTop = top;
+                    current = section;
                 }
             }
             setActiveSection(current);
@@ -113,7 +115,7 @@ const Navbar = () => {
                         )}
                         <a href="#work" className={`nav-item ${activeSection === 'work' ? 'active' : ''}`} onClick={(e) => handleScrollTo(e, 'work')}>Portfolio</a>
                         <a href="#process" className={`nav-item ${activeSection === 'process' ? 'active' : ''}`} onClick={(e) => handleScrollTo(e, 'process')}>Process</a>
-                        <a href="#why-dot" className={`nav-item ${activeSection === 'why-dot' ? 'active' : ''}`} onClick={(e) => handleScrollTo(e, 'why-dot')}>Why DOT.</a>
+                        <a href="#why-us" className={`nav-item ${activeSection === 'why-us' ? 'active' : ''}`} onClick={(e) => handleScrollTo(e, 'why-us')}>Why Us?</a>
                         <a href="#stack" className={`nav-item ${activeSection === 'stack' ? 'active' : ''}`} onClick={(e) => handleScrollTo(e, 'stack')}>Stack</a>
                         {SITE_SECTIONS.showTeam ? (
                             <a href="#team" className={`nav-item ${activeSection === 'team' ? 'active' : ''}`} onClick={(e) => handleScrollTo(e, 'team')}>Team</a>

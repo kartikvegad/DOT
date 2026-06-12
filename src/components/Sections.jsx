@@ -59,11 +59,11 @@ export const WhyDot = () => {
     ];
 
     return (
-        <section id="why-dot" className="section-padding">
+        <section id="why-us" className="section-padding">
             <div className="container">
                 <div className="section-header">
                     <div className="section-label">Core Values</div>
-                    <h2 className="section-title">Why DOT.</h2>
+                    <h2 className="section-title">Why Us?</h2>
                     <p className="section-description">
                         We prioritize quality, clarity, and long-term scalability in every line of code we ship.
                     </p>
@@ -164,7 +164,7 @@ export const Footer = () => {
                                 {SITE_SECTIONS.showTestimonials && <li><a href="#reviews">REVIEWS</a></li>}
                                 <li><a href="#work">PORTFOLIO</a></li>
                                 <li><a href="#process">PROCESS</a></li>
-                                <li><a href="#why-dot">WHY DOT.</a></li>
+                                <li><a href="#why-us">WHY US?</a></li>
                                 {SITE_SECTIONS.showTeam ? (
                                     <li><a href="#team">TEAM</a></li>
                                 ) : (
