@@ -52,7 +52,7 @@ const Contact = () => {
         } catch (err) {
             console.error('Submission error:', err);
             setError(
-                'Something went wrong. Please try again or contact us directly at kartikvegad1806@gmail.com'
+                'Something went wrong. Please try again or contact us directly at kartikvegad.dot@gmail.com'
             );
         } finally {
             setIsSubmitting(false);
