@@ -169,7 +169,7 @@ export const Footer = () => {
                                 {SITE_SECTIONS.showTeam ? (
                                     <li><Link to="/#team">TEAM</Link></li>
                                 ) : (
-                                    <li><Link to="/#about">ABOUT DOT.</Link></li>
+                                    <li><Link to="/#about">ABOUT</Link></li>
                                 )}
                                 <li><Link to="/contact">CONTACT</Link></li>
                             </ul>
