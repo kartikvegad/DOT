@@ -24,11 +24,16 @@ export default async function handler(req, res) {
         return res.status(405).json({ error: 'Method not allowed' });
     }
 
-    const { user_name, user_email, query, summary } = req.body;
+    const { user_name, user_email, user_phone, query, summary } = req.body;
     const userQuery = (query || summary || '').trim() || 'Not provided';
+    const phone = (user_phone || '').trim();
 
     if (!user_email) {
         return res.status(400).json({ error: 'Email is required' });
+    }
+
+    if (!phone) {
+        return res.status(400).json({ error: 'Phone number is required' });
     }
 
     try {
@@ -81,6 +86,7 @@ export default async function handler(req, res) {
                     <table style="width: 100%; border-collapse: collapse; margin-top: 16px;">
                         <tr><td style="padding: 8px 0; color: #888; width: 140px;">Name</td><td style="padding: 8px 0; font-weight: bold;">${user_name || 'Not provided'}</td></tr>
                         <tr><td style="padding: 8px 0; color: #888;">Email</td><td style="padding: 8px 0;"><a href="mailto:${user_email}" style="color: #FF4400;">${user_email}</a></td></tr>
+                        <tr><td style="padding: 8px 0; color: #888;">Phone</td><td style="padding: 8px 0;"><a href="tel:${phone}" style="color: #FF4400;">${phone}</a></td></tr>
                         <tr><td style="padding: 8px 0; color: #888; vertical-align: top;">Query</td><td style="padding: 8px 0;">${userQuery}</td></tr>
                     </table>
                 </div>
@@ -110,6 +116,7 @@ export default async function handler(req, res) {
                         <table style="width: 100%; border-collapse: collapse;">
                             <tr><td style="padding: 6px 0; color: #666; width: 130px; font-size: 14px;">Name</td><td style="padding: 6px 0; font-size: 14px;">${user_name || 'Not provided'}</td></tr>
                             <tr><td style="padding: 6px 0; color: #666; font-size: 14px;">Email</td><td style="padding: 6px 0; font-size: 14px;">${user_email}</td></tr>
+                            <tr><td style="padding: 6px 0; color: #666; font-size: 14px;">Phone</td><td style="padding: 6px 0; font-size: 14px;">${phone}</td></tr>
                             <tr><td style="padding: 6px 0; color: #666; font-size: 14px; vertical-align: top;">Query</td><td style="padding: 6px 0; font-size: 14px;">${userQuery}</td></tr>
                         </table>
                     </div>

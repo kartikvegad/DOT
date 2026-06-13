@@ -9,6 +9,7 @@ const Contact = () => {
     const [formData, setFormData] = useState({
         name: '',
         email: '',
+        phone: '',
         query: '',
     });
 
@@ -21,8 +22,8 @@ const Contact = () => {
         e.preventDefault();
         setError(null);
 
-        if (!formData.name.trim() || !formData.email.trim()) {
-            setError('Please enter your name and email.');
+        if (!formData.name.trim() || !formData.email.trim() || !formData.phone.trim()) {
+            setError('Please enter your name, email, and phone number.');
             return;
         }
 
@@ -31,6 +32,7 @@ const Contact = () => {
         const payload = {
             user_name: formData.name.trim(),
             user_email: formData.email.trim(),
+            user_phone: formData.phone.trim(),
             query: formData.query.trim(),
         };
 
@@ -59,7 +61,7 @@ const Contact = () => {
 
     const resetForm = () => {
         setSubmitted(false);
-        setFormData({ name: '', email: '', query: '' });
+        setFormData({ name: '', email: '', phone: '', query: '' });
         setError(null);
     };
 
@@ -114,6 +116,19 @@ const Contact = () => {
                                     placeholder="name@company.com"
                                     value={formData.email}
                                     onChange={(e) => updateData('email', e.target.value)}
+                                    required
+                                />
+                            </div>
+
+                            <div className="form-group">
+                                <label className="form-label" htmlFor="contact-phone">Phone</label>
+                                <input
+                                    id="contact-phone"
+                                    type="tel"
+                                    className="form-input"
+                                    placeholder="Your phone number"
+                                    value={formData.phone}
+                                    onChange={(e) => updateData('phone', e.target.value)}
                                     required
                                 />
                             </div>
