@@ -22,7 +22,8 @@
 }
 
 .about-card:hover {
-    background: var(--bg-secondary);
+    background: var(--accent);
+    border-color: var(--accent);
     transform: translateY(-4px);
     z-index: 1;
 }
@@ -38,10 +39,11 @@
     transform: scaleY(0);
     transform-origin: top;
     transition: transform 0.5s var(--ease-expo);
+    opacity: 0;
 }
 
 .about-card:hover::before {
-    transform: scaleY(1);
+    transform: scaleY(0);
 }
 
 .about-card h3 {
@@ -50,6 +52,11 @@
     color: var(--text-primary);
     text-transform: uppercase;
     letter-spacing: 0.02em;
+    transition: color 0.3s;
+}
+
+.about-card:hover h3 {
+    color: #fff;
 }
 
 .about-card p {
@@ -57,6 +64,11 @@
     color: var(--text-secondary);
     line-height: 1.7;
     font-size: 0.95rem;
+    transition: color 0.3s;
+}
+
+.about-card:hover p {
+    color: rgba(255, 255, 255, 0.9);
 }
 
 @media (max-width: 768px) {

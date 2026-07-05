@@ -12,7 +12,7 @@ const CustomCursor = () => {
 
         const updateHoverState = (e) => {
             const target = e.target;
-            const isClickable = target.closest('a, button, [role="button"], .selection-card, .team-card, .dot-logo, .landing-section, .project-card, .indicator');
+            const isClickable = target.closest('a, button, [role="button"], .selection-card, .team-card, .dot-logo, .landing-section, .project-card, .indicator, .custom-scrollbar-thumb');
             setIsHovered(!!isClickable);
         };
 

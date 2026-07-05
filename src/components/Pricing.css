@@ -42,18 +42,20 @@
 }
 
 .pricing-card:hover::before {
-    transform: scaleY(1);
+    transform: scaleY(0);
+    opacity: 0;
 }
 
 .pricing-card:hover {
-    background: var(--bg-secondary);
+    background: var(--accent);
+    border-color: var(--accent);
     transform: translateY(-5px);
 }
 
 /* Enhanced hover effect for light theme */
 [data-theme="light"] .pricing-card:hover {
-    background: white;
-    box-shadow: 0 12px 32px rgba(0, 0, 0, 0.12);
+    background: var(--accent);
+    box-shadow: none;
 }
 
 /* Recommended Card */
@@ -96,7 +98,21 @@
 }
 
 .pricing-card:hover .plan-title {
-    color: var(--accent);
+    color: #fff;
+}
+
+.pricing-card:hover .plan-price {
+    color: #fff;
+}
+
+.pricing-card:hover .plan-tagline,
+.pricing-card:hover .feature-item {
+    color: rgba(255, 255, 255, 0.9);
+}
+
+.pricing-card:hover .feature-icon,
+.pricing-card:hover .recommended-badge {
+    color: #fff;
 }
 
 .plan-price {
@@ -174,7 +190,7 @@
 
 /* Enhanced hover effect for light theme */
 [data-theme="light"] .main-pricing-cta:hover {
-    box-shadow: 0 4px 12px rgba(255, 68, 0, 0.2);
+    box-shadow: 0 4px 12px rgba(75, 199, 114, 0.2);
 }
 
 /* Pricing Disclaimer */

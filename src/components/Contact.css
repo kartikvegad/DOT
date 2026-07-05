@@ -133,7 +133,7 @@
 }
 
 .error-message-ui {
-    background: rgba(255, 68, 0, 0.1);
+    background: rgba(75, 199, 114, 0.1);
     border: 1px solid var(--accent);
     color: var(--accent);
     padding: 1rem;

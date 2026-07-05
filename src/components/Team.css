@@ -32,8 +32,8 @@
 }
 
 .team-card:hover {
-    background: var(--bg-secondary);
-    border-color: var(--border-color);
+    background: var(--accent);
+    border-color: var(--accent);
     z-index: 1;
 }
 
@@ -48,10 +48,11 @@
     transform: scaleY(0);
     transform-origin: top;
     transition: transform 0.5s var(--ease-expo);
+    opacity: 0;
 }
 
 .team-card:hover::before {
-    transform: scaleY(1);
+    transform: scaleY(0);
 }
 
 .team-photo-wrapper {
@@ -99,10 +100,6 @@
     transition: all 0.4s var(--ease-expo);
 }
 
-.team-card:hover .team-social-overlay {
-    bottom: 0;
-}
-
 .social-links {
     display: flex;
     gap: 1.25rem;
@@ -131,6 +128,11 @@
     margin-bottom: 0.5rem;
     text-transform: uppercase;
     letter-spacing: 0.02em;
+    transition: color 0.3s;
+}
+
+.team-card:hover .team-name {
+    color: #fff;
 }
 
 .team-role {
@@ -139,6 +141,16 @@
     color: var(--accent);
     text-transform: uppercase;
     letter-spacing: 0.1em;
+    transition: color 0.3s;
+}
+
+.team-card:hover .team-role {
+    color: rgba(255, 255, 255, 0.85);
+}
+
+.team-card:hover .team-social-overlay {
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.25);
 }
 
 @media (max-width: 768px) {

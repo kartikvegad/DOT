@@ -1,14 +1,12 @@
-/* SERVICES SECTION - CLEAN GRID */
+/* SERVICES SECTION — BENTO GRID */
 .services-section {
     background: var(--bg-primary);
 }
 
-
-/* Standardized header is now in index.css */
-
 .services-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    grid-template-columns: repeat(3, 1fr);
+    grid-auto-rows: 1fr;
     gap: 0;
     margin-top: var(--spacing-lg);
     border: 0.5px solid var(--border-color);
@@ -17,73 +15,115 @@
 .service-card {
     background: transparent;
     border: 0.5px solid var(--border-color);
-    padding: var(--spacing-lg);
-    transition: all 0.5s var(--ease-expo);
+    padding: 1.25rem 1.5rem;
+    transition:
+        background-color 0.5s var(--ease-expo),
+        border-color 0.5s var(--ease-expo),
+        color 0.5s var(--ease-expo);
     position: relative;
     overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    height: 100%;
 }
 
 .service-card:hover {
-    background: var(--bg-secondary);
-    z-index: 1;
-    transform: translateY(-5px);
-}
-
-.service-card::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 3px;
-    height: 100%;
     background: var(--accent);
-    transform: scaleY(0);
-    transform-origin: top;
-    transition: transform 0.5s var(--ease-expo);
+    border-color: var(--accent);
+    z-index: 1;
 }
 
-.service-card:hover::before {
-    transform: scaleY(1);
+.service-index {
+    display: block;
+    font-family: var(--font-mono);
+    font-size: 0.625rem;
+    font-weight: 500;
+    letter-spacing: 0.12em;
+    color: var(--text-tertiary);
+    margin-bottom: 1rem;
+    transition: color 0.3s var(--ease-expo);
 }
 
-/* Enhanced hover effect for light theme */
-[data-theme="light"] .service-card:hover {
-    background: white;
-    box-shadow: 0 12px 32px rgba(0, 0, 0, 0.12);
+.service-card:hover .service-index {
+    color: rgba(255, 255, 255, 0.55);
+}
+
+.service-body {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
 }
 
 .service-icon {
     color: var(--text-tertiary);
-    /* Default color matching project meta info */
-    margin-bottom: var(--spacing-md);
+    margin-bottom: 0.75rem;
     transition: color 0.3s var(--ease-expo);
 }
 
 .service-card:hover .service-icon {
-    color: var(--accent);
+    color: #fff;
 }
 
 .service-card h3 {
     font-family: var(--font-display);
-    font-size: 1.5rem;
+    font-size: 1.1rem;
     font-weight: 600;
     color: var(--text-primary);
-    margin-bottom: var(--spacing-sm);
+    margin: 0 0 0.5rem;
     text-transform: uppercase;
     letter-spacing: -0.01em;
     transition: color 0.3s;
 }
 
 .service-card:hover h3 {
-    color: var(--accent);
+    color: #fff;
 }
 
 .service-card p {
     font-family: var(--font-display);
-    font-size: 0.95rem;
+    font-size: 0.85rem;
     color: var(--text-secondary);
-    line-height: 1.6;
-    margin: 0;
+    line-height: 1.55;
+    margin: 0 0 0.75rem;
+    transition: color 0.3s;
+}
+
+.service-card:hover p {
+    color: rgba(255, 255, 255, 0.9);
+}
+
+.service-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.35rem;
+    margin-top: auto;
+}
+
+.service-tag {
+    font-family: var(--font-mono);
+    font-size: 0.5625rem;
+    font-weight: 500;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--text-tertiary);
+    border: 1px solid var(--border-color);
+    padding: 0.28rem 0.45rem;
+    transition:
+        color 0.3s var(--ease-expo),
+        border-color 0.3s var(--ease-expo),
+        background-color 0.3s var(--ease-expo);
+}
+
+.service-card:hover .service-tag {
+    color: rgba(255, 255, 255, 0.9);
+    border-color: rgba(255, 255, 255, 0.35);
+    background: rgba(255, 255, 255, 0.08);
+}
+
+@media (max-width: 1024px) {
+    .services-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
 }
 
 @media (max-width: 768px) {
@@ -93,10 +133,10 @@
     }
 
     .service-card {
-        padding: 1.75rem var(--page-gutter);
+        padding: 1.5rem var(--page-gutter);
     }
 
     .service-card h3 {
-        font-size: 1.2rem;
+        font-size: 1.1rem;
     }
 }

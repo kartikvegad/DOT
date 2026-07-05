@@ -1,0 +1,41 @@
+.custom-scrollbar {
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    width: 14px;
+    z-index: 9990;
+    pointer-events: none;
+}
+
+.custom-scrollbar-thumb {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background: var(--accent);
+    border-radius: 0;
+    pointer-events: auto;
+    cursor: none;
+    transition: background-color 0.2s var(--ease-expo), filter 0.2s var(--ease-expo);
+}
+
+.custom-scrollbar-thumb:hover,
+.custom-scrollbar-thumb.dragging {
+    filter: brightness(0.92);
+}
+
+.custom-scrollbar-thumb.in-footer {
+    background: #FFFFFF;
+}
+
+.custom-scrollbar-thumb.in-footer:hover,
+.custom-scrollbar-thumb.in-footer.dragging {
+    filter: brightness(0.9);
+}
+
+@media (max-width: 768px) {
+    .custom-scrollbar {
+        display: none;
+    }
+}

@@ -24,7 +24,8 @@
 }
 
 .portfolio-card:hover {
-    background: var(--bg-secondary);
+    background: var(--accent);
+    border-color: var(--accent);
     z-index: 1;
     transform: translateY(-5px);
 }
@@ -40,15 +41,16 @@
     transform: scaleY(0);
     transform-origin: top;
     transition: transform 0.5s var(--ease-expo);
+    opacity: 0;
 }
 
 .portfolio-card:hover::before {
-    transform: scaleY(1);
+    transform: scaleY(0);
 }
 
 [data-theme="light"] .portfolio-card:hover {
-    background: white;
-    box-shadow: 0 12px 32px rgba(0, 0, 0, 0.12);
+    background: var(--accent);
+    box-shadow: none;
 }
 
 .portfolio-card-logo {
@@ -76,6 +78,11 @@
     letter-spacing: 0.12em;
     color: var(--accent);
     margin-bottom: 0.75rem;
+    transition: color 0.3s;
+}
+
+.portfolio-card:hover .portfolio-card-badge {
+    color: rgba(255, 255, 255, 0.85);
 }
 
 .portfolio-card h3 {
@@ -90,7 +97,7 @@
 }
 
 .portfolio-card:hover h3 {
-    color: var(--accent);
+    color: #fff;
 }
 
 .portfolio-card p {
@@ -99,6 +106,11 @@
     color: var(--text-secondary);
     line-height: 1.6;
     margin: 0 0 var(--spacing-md);
+    transition: color 0.3s;
+}
+
+.portfolio-card:hover p {
+    color: rgba(255, 255, 255, 0.9);
 }
 
 .portfolio-visit-btn {
@@ -119,8 +131,8 @@
 }
 
 .portfolio-visit-btn:hover {
-    background: var(--accent);
-    color: white;
+    background: #fff;
+    color: var(--accent);
     transform: translateY(-2px);
 }
 

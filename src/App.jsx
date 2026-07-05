@@ -6,6 +6,8 @@ import ContactPage from './pages/ContactPage';
 import ScrollToTop from './components/ScrollToTop';
 import ScrollToTopOnNavigate from './components/ScrollToTopOnNavigate';
 import CustomCursor from './components/CustomCursor';
+import CustomScrollbar from './components/CustomScrollbar';
+import SelectionHighlight from './components/SelectionHighlight';
 import './index.css';
 
 function App() {
@@ -20,6 +22,8 @@ function App() {
             <ScrollToTopOnNavigate />
             <div className="App">
                 <CustomCursor />
+                <CustomScrollbar />
+                <SelectionHighlight />
                 <Navbar />
                 <Routes>
                     <Route path="/" element={<Home />} />

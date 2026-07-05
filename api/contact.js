@@ -82,11 +82,11 @@ export default async function handler(req, res) {
             subject: `New inquiry from ${user_name || user_email} – DOT.`,
             html: `
                 <div style="font-family: Arial, sans-serif; max-width: 600px; margin: 0 auto; padding: 24px; background: #0a0a0a; color: #f0f0f0; border-radius: 12px;">
-                    <h2 style="color: #FF4400; border-bottom: 1px solid #222; padding-bottom: 12px;">📨 New Contact Inquiry</h2>
+                    <h2 style="color: #8F4AE5; border-bottom: 1px solid #222; padding-bottom: 12px;">📨 New Contact Inquiry</h2>
                     <table style="width: 100%; border-collapse: collapse; margin-top: 16px;">
                         <tr><td style="padding: 8px 0; color: #888; width: 140px;">Name</td><td style="padding: 8px 0; font-weight: bold;">${user_name || 'Not provided'}</td></tr>
-                        <tr><td style="padding: 8px 0; color: #888;">Email</td><td style="padding: 8px 0;"><a href="mailto:${user_email}" style="color: #FF4400;">${user_email}</a></td></tr>
-                        <tr><td style="padding: 8px 0; color: #888;">Phone</td><td style="padding: 8px 0;"><a href="tel:${phone}" style="color: #FF4400;">${phone}</a></td></tr>
+                        <tr><td style="padding: 8px 0; color: #888;">Email</td><td style="padding: 8px 0;"><a href="mailto:${user_email}" style="color: #8F4AE5;">${user_email}</a></td></tr>
+                        <tr><td style="padding: 8px 0; color: #888;">Phone</td><td style="padding: 8px 0;"><a href="tel:${phone}" style="color: #8F4AE5;">${phone}</a></td></tr>
                         <tr><td style="padding: 8px 0; color: #888; vertical-align: top;">Query</td><td style="padding: 8px 0;">${userQuery}</td></tr>
                     </table>
                 </div>
@@ -122,7 +122,7 @@ export default async function handler(req, res) {
                     </div>
                     <p style="color: #aaa; line-height: 1.7;">
                         In the meantime, feel free to reply to this email or reach us directly at
-                        <a href="mailto:${process.env.EMAIL_USER}" style="color: #FF4400;">${process.env.EMAIL_USER}</a>.
+                        <a href="mailto:${process.env.EMAIL_USER}" style="color: #8F4AE5;">${process.env.EMAIL_USER}</a>.
                     </p>
                     <hr style="border: none; border-top: 1px solid #1e1e1e; margin: 24px 0;" />
                     <p style="font-size: 12px; color: #333; margin: 0;">

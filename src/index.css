@@ -1,5 +1,6 @@
 :root,
 [data-theme="dark"] {
+  --color-black: #000000;
   --bg-primary: #030303;
   --bg-secondary: #080808;
   --bg-tertiary: #0c0c0c;
@@ -8,8 +9,8 @@
   --text-tertiary: #666666;
 
   /* Accent */
-  --accent: #FF4400;
-  --accent-dim: rgba(255, 68, 0, 0.1);
+  --accent: #4BC772;
+  --accent-dim: rgba(75, 199, 114, 0.1);
 
   --border-color: #161616;
   --border-strong: #222222;
@@ -31,13 +32,15 @@
   /* Layout — single source for page gutters & section rhythm */
   --page-gutter: 2rem;
   --navbar-height: 64px;
-  --section-padding-top: 1.25rem;
+  --section-divider-gap: 2.5rem;
   --section-padding-y: 4rem;
   --content-max: 1400px;
+  --section-cta-gap: 3rem;
 }
 
 /* Light Theme */
 [data-theme="light"] {
+  --color-black: #000000;
   --bg-primary: #FFFFFF;
   --bg-secondary: #F5F5F5;
   --bg-tertiary: #E8E8E8;
@@ -45,8 +48,8 @@
   --text-secondary: #666666;
   --text-tertiary: #999999;
 
-  --accent: #FF4400;
-  --accent-dim: rgba(255, 68, 0, 0.1);
+  --accent: #4BC772;
+  --accent-dim: rgba(75, 199, 114, 0.1);
 
   --border-color: #E0E0E0;
   --border-strong: #CCCCCC;
@@ -54,20 +57,11 @@
 
 html {
   transition: background-color 0.3s ease, color 0.3s ease;
-}
-
-* {
-  box-sizing: border-box;
-}
-
-::selection {
-  background: var(--accent);
-  color: var(--bg-primary);
-}
-
-html {
   -webkit-text-size-adjust: 100%;
   text-size-adjust: 100%;
+  overflow-y: auto;
+  scrollbar-width: none !important;
+  -ms-overflow-style: none !important;
 }
 
 html,
@@ -80,21 +74,57 @@ body {
   overflow-x: hidden;
   min-height: 100vh;
   min-height: 100dvh;
+  scrollbar-width: none !important;
+  -ms-overflow-style: none !important;
 }
 
-/* Custom Scrollbar */
-::-webkit-scrollbar {
-  width: 18px;
-  background: var(--bg-primary);
+html::-webkit-scrollbar,
+body::-webkit-scrollbar,
+*::-webkit-scrollbar {
+  width: 0 !important;
+  height: 0 !important;
+  display: none !important;
+  background: transparent !important;
+  -webkit-appearance: none !important;
 }
 
-::-webkit-scrollbar-thumb {
-  background: var(--border-strong);
-  border: 2px solid var(--bg-primary);
+html::-webkit-scrollbar-track,
+body::-webkit-scrollbar-track,
+*::-webkit-scrollbar-track,
+html::-webkit-scrollbar-thumb,
+body::-webkit-scrollbar-thumb,
+*::-webkit-scrollbar-thumb,
+html::-webkit-scrollbar-button,
+body::-webkit-scrollbar-button,
+*::-webkit-scrollbar-button {
+  display: none !important;
+  width: 0 !important;
+  height: 0 !important;
+  background: transparent !important;
 }
 
-::-webkit-scrollbar-thumb:hover {
-  background: var(--accent);
+* {
+  box-sizing: border-box;
+}
+
+/* Text selection — defaults; SelectionHighlight.jsx injects live overrides for Chrome */
+html[data-theme="light"] *::selection,
+html[data-theme="light"] *::-moz-selection {
+  background-color: #4BC772 !important;
+  color: #000000 !important;
+}
+
+html[data-theme="dark"] *::selection,
+html[data-theme="dark"] *::-moz-selection,
+html:not([data-theme="light"]) *::selection,
+html:not([data-theme="light"]) *::-moz-selection {
+  background-color: #4BC772 !important;
+  color: #FFFFFF !important;
+}
+
+::highlight(dot-selection) {
+  background-color: #4BC772;
+  color: inherit;
 }
 
 /* Base Utilities */
@@ -153,10 +183,24 @@ button {
 
 /* Common Section Styles */
 .section-padding {
-  padding-top: var(--section-padding-top);
-  padding-bottom: var(--section-padding-y);
+  padding-top: 0;
+  padding-bottom: var(--section-divider-gap);
   padding-left: max(var(--page-gutter), env(safe-area-inset-left, 0px));
   padding-right: max(var(--page-gutter), env(safe-area-inset-right, 0px));
+}
+
+.section-padding::before {
+  content: '';
+  display: block;
+  width: calc(100% - 2 * var(--page-gutter));
+  max-width: 1300px;
+  height: 1px;
+  background: var(--border-color);
+  margin: 0 auto var(--section-divider-gap);
+}
+
+.page-flow #hero + .section-padding::before {
+  margin-top: var(--section-divider-gap);
 }
 
 .section-divider {
@@ -164,7 +208,7 @@ button {
   max-width: 1300px;
   height: 1px;
   background: var(--border-color);
-  margin: 0 auto;
+  margin: var(--section-divider-gap) auto;
 }
 
 .section-alt-bg {
@@ -210,7 +254,7 @@ button {
 .section-cta-wrap {
   display: flex;
   justify-content: center;
-  margin-top: var(--spacing-lg);
+  margin-top: var(--section-cta-gap);
 }
 
 .section-cta {
@@ -249,8 +293,10 @@ button {
   :root {
     --page-gutter: 1.25rem;
     --section-padding-y: 3rem;
+    --section-divider-gap: 2rem;
     --spacing-lg: 3rem;
     --spacing-md: 1.5rem;
+    --section-cta-gap: 2.5rem;
   }
 
   .section-header {
@@ -265,7 +311,7 @@ button {
 
   .section-cta-wrap {
     width: 100%;
-    margin-top: var(--spacing-md);
+    margin-top: var(--section-cta-gap);
   }
 
   .section-cta {

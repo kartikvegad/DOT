@@ -28,7 +28,7 @@ const AboutDot = () => {
             <div className="container">
                 <div className="section-header">
                     <div className="section-label">Who We Are</div>
-                    <h2 className="section-title">About DOT.</h2>
+                    <h2 className="section-title">ABOUT US</h2>
                     <p className="section-description about-intro">
                         DOT. is a web development studio focused on building polished, performant digital experiences.
                         We help businesses strengthen their online presence through thoughtful design, solid engineering,

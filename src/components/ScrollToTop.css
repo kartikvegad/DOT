@@ -4,15 +4,21 @@
     right: 2rem;
     width: 48px;
     height: 48px;
-    background: var(--bg-secondary);
-    border: 1px solid var(--border-color);
-    color: var(--text-primary);
+    background: var(--text-primary);
+    border: 1px solid transparent;
+    color: var(--color-black);
     display: flex;
     align-items: center;
     justify-content: center;
     cursor: pointer;
     z-index: 1000;
-    transition: all 0.3s var(--ease-expo);
+    transition:
+        background-color 0.3s var(--ease-expo),
+        border-color 0.3s var(--ease-expo),
+        color 0.3s var(--ease-expo),
+        opacity 0.3s var(--ease-expo),
+        visibility 0.3s var(--ease-expo),
+        transform 0.3s var(--ease-expo);
     opacity: 0;
     visibility: hidden;
     transform: translateY(20px);
@@ -26,9 +32,20 @@
 
 .scroll-to-top:hover {
     background: var(--accent);
-    border-color: var(--accent);
+    border-color: rgba(255, 255, 255, 0.85);
     color: white;
-    transform: translateY(-5px);
+}
+
+[data-theme="light"] .scroll-to-top {
+    background: var(--color-black);
+    border: 1px solid transparent;
+    color: #fff;
+}
+
+[data-theme="light"] .scroll-to-top:hover {
+    background: var(--accent);
+    border-color: rgba(255, 255, 255, 0.85);
+    color: white;
 }
 
 @media (max-width: 768px) {
